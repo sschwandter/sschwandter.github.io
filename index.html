@@ -1,19 +1,114 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="refresh"
-      content="0; url=https://facebook.com/stefan.schwandter"
-    />
-    <script type="text/javascript">
-      window.location.href = "https://facebook.com/stefan.schwandter";
-    </script>
-    <title>Page Redirection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stefan Schwandter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121212;
+        color: white;
+        text-align: center;
+      }
+      nav {
+        background-color: #1f1f1f;
+        padding: 15px;
+      }
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      section {
+        padding: 50px;
+      }
+      .music {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .music .song {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 15px;
+      }
+      .music .song h2 {
+        flex-shrink: 0;
+        width: 150px;
+        text-align: left;
+        font-size: 18px;
+        margin: 0;
+      }
+      .music audio {
+        flex-grow: 1;
+        width: 100%;
+        max-width: 400px;
+      }
+    </style>
   </head>
   <body>
-    <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-    If you are not redirected automatically, follow this
-    <a href="https://facebook.com/stefan.schwandter">link to example</a>.
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#music">Music</a>
+      <a href="#bio">Bio</a>
+    </nav>
+
+    <section id="home">
+      <h1>Welcome to My Music</h1>
+      <p>Discover my latest tracks and journey.</p>
+    </section>
+
+    <section id="music" class="music">
+      <h1>My Music</h1>
+
+      <div class="song">
+        <h2>The Wieden Concert</h2>
+        <audio controls>
+          <source
+            src="music/2024-09-14 The Wieden Concert.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="song">
+        <h2>I See Miracles Happen</h2>
+        <audio controls>
+          <source src="music/I See Miracles Happen.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="song">
+        <h2>Genug</h2>
+        <audio controls>
+          <source
+            src="music/Genug Real Drums 2024-05-26.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <section id="bio">
+      <h1>About Me</h1>
+      <p>
+        I'm a musician/dancer/software developer in my fourties. I am aware that
+        web sites like this might be a thing of the past but that's the thing -
+        once you get to a certain age, the past becomes nostalgia and feels
+        nice. There's a lot going on in the present and maybe I will share it
+        with you soon.
+      </p>
+      <img src="music/E58A1D2F-AA26-45CB-8172-EBBAB4B4A2C9_1_105_c.jpeg" />
+    </section>
   </body>
 </html>
