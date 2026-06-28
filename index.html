@@ -8,88 +8,89 @@
   </head>
   <body>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#music">Music</a>
-      <a href="#bio">Bio</a>
+      <span class="nav-logo">SS</span>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#music">Music</a>
+        <a href="#bio">Bio</a>
+      </div>
     </nav>
 
     <section id="home">
-      <h1>Stefan Schwandter</h1>
       <img src="img/IMG_0321.JPG" alt="Stefan Schwandter" />
-    </section>
-
-    <section id="music" class="music">
-      <h1>My Music</h1>
-      <p>Welcome to my latest tracks.</p>
-
-      <div class="song">
-        <h2>Genug</h2>
-        <audio controls>
-          <source
-            src="music/Genug Real Drums 2024-05-26.mp3"
-            type="audio/mpeg"
-          />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="song">
-        <h2>I See Miracles Happen</h2>
-        <audio controls>
-          <source src="music/I See Miracles Happen.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="song">
-        <h2>Yesterday I Came To Myself</h2>
-        <audio controls>
-          <source
-            src="music/Yesterday I Came to Myself.mp3"
-            type="audio/mpeg"
-          />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="song">
-        <h2>The Wieden Concert</h2>
-        <audio controls>
-          <source
-            src="music/2024-09-14 The Wieden Concert.mp3"
-            type="audio/mpeg"
-          />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="song">
-        <h2>The Favoriten Concert</h2>
-        <audio controls>
-          <source src="music/The Favoriten Concert.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="song">
-        <h2>The Favoriten Concert II</h2>
-        <audio controls>
-          <source src="music/Favoriten Concert II.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+      <div class="hero-text">
+        <h1>Stefan Schwandter</h1>
+        <p class="subtitle">Musician &middot; Dancer &middot; Developer</p>
       </div>
     </section>
 
-    <section id="bio" class="bio">
-      <h1>About Me</h1>
-      <p>
-        I'm a musician/dancer/software developer in my forties. I am aware that
-        web sites like this might be a thing of the past but that's the thing -
-        once you get to a certain age, the past becomes nostalgia and feels
-        nice. There's a lot going on in the present and maybe I will share it
-        with you soon.
-      </p>
-      <img src="img/E58A1D2F-AA26-45CB-8172-EBBAB4B4A2C9_1_105_c.jpeg" alt="Performance" />
+    <section id="music">
+      <h2 class="section-title">My Music</h2>
+      <hr class="section-rule" />
+
+      <div class="tracks">
+        <div class="song">
+          <h2>Genug</h2>
+          <audio controls>
+            <source src="music/Genug Real Drums 2024-05-26.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="song">
+          <h2>I See Miracles Happen</h2>
+          <audio controls>
+            <source src="music/I See Miracles Happen.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="song">
+          <h2>Yesterday I Came To Myself</h2>
+          <audio controls>
+            <source src="music/Yesterday I Came to Myself.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="song">
+          <h2>The Wieden Concert</h2>
+          <audio controls>
+            <source src="music/2024-09-14 The Wieden Concert.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="song">
+          <h2>The Favoriten Concert</h2>
+          <audio controls>
+            <source src="music/The Favoriten Concert.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <div class="song">
+          <h2>The Favoriten Concert II</h2>
+          <audio controls>
+            <source src="music/Favoriten Concert II.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <section id="bio">
+      <h2 class="section-title">About Me</h2>
+      <hr class="section-rule" />
+
+      <div class="bio-inner">
+        <div class="bio-text">
+          <p>
+            I'm a musician/dancer/software developer in my forties. I am aware that
+            web sites like this might be a thing of the past but that's the thing —
+            once you get to a certain age, the past becomes nostalgia and feels
+            nice. There's a lot going on in the present and maybe I will share it
+            with you soon.
+          </p>
+        </div>
+        <div class="bio-image">
+          <img src="img/E58A1D2F-AA26-45CB-8172-EBBAB4B4A2C9_1_105_c.jpeg" alt="Performance" />
+        </div>
+      </div>
     </section>
   </body>
 </html>
