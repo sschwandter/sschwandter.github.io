@@ -163,45 +163,186 @@ section {
   background: var(--surface);
 }
 
-.tracks {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.player {
   max-width: 720px;
   margin: 0 auto;
 }
 
-.song {
-  display: grid;
-  grid-template-columns: 1fr auto;
+/* Sticky controls bar */
+.player-bar {
+  position: sticky;
+  top: 64px;
+  z-index: 50;
+  display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   background: var(--surface-2);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: var(--radius);
-  padding: 20px 24px;
-  transition: border-color 0.25s, transform 0.2s;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
 }
 
-.song:hover {
-  border-color: rgba(201, 168, 76, 0.35);
-  transform: translateY(-2px);
+.ctrl {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s, background 0.2s;
 }
 
-.song h2 {
+.ctrl svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.ctrl:hover {
+  color: var(--gold-light);
+}
+
+.ctrl.play {
+  width: 48px;
+  height: 48px;
+  background: var(--gold);
+  color: #111;
+}
+
+.ctrl.play:hover {
+  background: var(--gold-light);
+  color: #111;
+}
+
+.ctrl.play svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Play/pause icon toggle */
+.icon-pause { display: none; }
+.player-bar.playing .icon-play { display: none; }
+.player-bar.playing .icon-pause { display: block; }
+
+.player-main {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.player-title {
   font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 16px;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 6px;
 }
 
-.song audio {
-  width: 260px;
+.player-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
   flex-shrink: 0;
-  accent-color: var(--gold);
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.player-volume svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Range inputs */
+.seek,
+.volume {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.15);
+  cursor: pointer;
+  outline: none;
+}
+
+.seek { flex-grow: 1; }
+.volume { width: 80px; }
+
+.seek::-webkit-slider-thumb,
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+  transition: background 0.2s;
+}
+
+.seek::-webkit-slider-thumb:hover,
+.volume::-webkit-slider-thumb:hover {
+  background: var(--gold-light);
+}
+
+.seek::-moz-range-thumb,
+.volume::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+}
+
+/* Playlist */
+.playlist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.2s, color 0.2s;
+}
+
+.track:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateY(-2px);
+}
+
+.track.active {
+  border-left-color: var(--gold);
+  color: var(--gold-light);
 }
 
 /* ── Bio ── */
@@ -249,12 +390,18 @@ section {
     gap: 20px;
   }
 
-  .song {
-    grid-template-columns: 1fr;
+  .player-bar {
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .song audio {
-    width: 100%;
+  .player-main {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .player-volume {
+    margin-left: auto;
   }
 
   .bio-inner {
